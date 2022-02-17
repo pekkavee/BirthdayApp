@@ -39,6 +39,7 @@ import com.example.ContactsApp.service.ContactService;
 	 
 	    @GetMapping("/new")
 	    public String add(Model model) {
+	    	//test comment
 	        model.addAttribute("contact", new Contact());
 	        return "new";
 	    }
