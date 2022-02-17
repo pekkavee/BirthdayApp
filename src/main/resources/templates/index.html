@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href=" /css/style.css"> -->
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<br></br>
+<div class="col-sm-5"  align = "left" > 
+<h1 >Merkkipäivät</h1>
+
+
+</div>
+
+<br></br>
+
+<div class="col-sm-5" align = "right">
+                 <div class="panel-body" align = "right" >
+                 <table class="table">
+  <thead class="thead-light">
+  
+    <tr>
+<!--        <th>Student ID</th> -->
+            <th>Nimi</th>
+            <th>Syntymäpäivä</th>
+            <th>Ikä </th>
+            <th>Muokkaa</th>
+            <th>Poista</th>
+   </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="contact : ${listcontact }">
+<!-- <td th:text="${contact.id}">Student ID</td> -->
+<td th:text="${contact.contactname}">Nimi</td>
+<td th:text="${#dates.format(contact.birthdate, 'dd-MMM-yyyy')}">bd</td>
+<!-- <td th:text="${student.course}">Course</td> -->
+<td th:text="${contact.age}">Fee</td>
+
+
+<td>
+ 
+<a th:href="@{'/edit/' + ${contact.id}}">Muokkaa</a>
+</td>     
+<td>
+<a th:href="@{'/delete/' + ${contact.id}}">Poista</a>
+</td>     
+</tr>
+  
+  </tbody>
+</table>
+                    
+                 </div>
+ 
+            </div>
+ 
+<div class="col-sm-5"  align = "left" >   
+     <h3><a  th:href="@{'/new'}">Lisää uusi</a></h3>    
+</div>
+ 
+
+
+
+</body>
+</html>
